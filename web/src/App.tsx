@@ -1,28 +1,30 @@
 import React from 'react';
 
+import './styles/global.css';
+import './styles/pages/landing.css'
 
-interface TitleProps {
-  text: String;
-}
-
-function Title(props: TitleProps) {
-  return(
-    //<h1>Hello</h1>
-    <h1>{props.text}</h1>
-  )
-}
-
-//JSX - Javascript XML
-//é a forma de incluir HTML dentro de JS
+import logoImg from './img/logo.svg'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-      <Title text="Titulo 1"/>
-      <Title text="Titulo 2"/>
-      <Title text="Titulo 3"/>
-      <Title text="Titulo 4"/>
+    <div id="page-landing">
+      <div className="content-wrapper">
+        <img src={logoImg} alt="Logo Happy"/>
+
+        <main>
+          <h1>Leve felicidade para o mundo</h1>
+          <p>Visite as ONGs e contribua com doações. Mude a vida de uma criança e de uma mãe.</p>
+        </main>
+        
+        <div className="location">
+          <strong>São Paulo</strong>
+          <span>São Paulo</span>
+        </div>
+
+        <a href="" className="enter-app">
+          >
+        </a>
+      </div>
     </div>
   );
 }
