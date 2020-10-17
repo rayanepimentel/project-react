@@ -13,6 +13,16 @@ export default {
     return response.json(ongs);
   },
 
+  async show(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const ongsRepository = getRepository(Ong)
+
+    const ong = await ongsRepository.findOneOrFail(id);
+
+    return response.json(ong);
+  },
+
   async create(request: Request, response: Response) {
     const {
       name,
