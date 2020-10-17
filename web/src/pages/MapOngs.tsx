@@ -4,6 +4,8 @@ import { FiPlus } from 'react-icons/fi';
 
 import logoLocal from '../img/logoLocal.svg';
 
+import '../styles/pages/map.css';
+
 function MapOngs() {
     return(
        <div id="page-map">
@@ -12,7 +14,7 @@ function MapOngs() {
                    <img src={logoLocal} alt="Happy"></img>
 
                    <h2>Escolha uma ONG no mapa</h2>
-                   <p>Muitas crinças estão esperando sua doação.</p>
+                   <p>Muitas crinças estão esperando sua doação :)</p>
                </header>
 
                <footer>
@@ -23,7 +25,7 @@ function MapOngs() {
 
            <div></div>
 
-           <Link to="" className="create-ongs">
+           <Link to="" className="enter-ongs">
                <FiPlus size={32} color="#FFF"/>
            </Link>
        </div>
