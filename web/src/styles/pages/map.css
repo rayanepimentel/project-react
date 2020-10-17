@@ -39,6 +39,10 @@
     font-weight: 800;
 }
 
+#page-map .lenflet-container {
+    z-index: 5;
+}
+
 #page-map .enter-ongs {
     position: absolute;
     right: 40px;
@@ -48,6 +52,8 @@
     height: 64px;
     background: #14c3d6;
     border-radius: 20px;
+
+    z-index: 10;
 
     display: flex;
     justify-content: center;
