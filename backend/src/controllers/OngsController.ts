@@ -5,6 +5,14 @@ import Ong from '../models/ong';
 
 
 export default {
+  async index(request: Request, response: Response) {
+    const ongsRepository = getRepository(Ong)
+
+    const ongs = await ongsRepository.find();
+
+    return response.json(ongs);
+  },
+
   async create(request: Request, response: Response) {
     const {
       name,
