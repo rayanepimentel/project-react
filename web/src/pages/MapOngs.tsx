@@ -2,22 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiPlus, FiArrowRight } from 'react-icons/fi';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import leaflet from 'leaflet';
 
 import 'leaflet/dist/leaflet.css';
 
 import logoLocal from '../img/logoLocal.svg';
-
+import mapIcon from '../utils/mapIcon';
 
 import '../styles/pages/map.css';
-
-const mapIcon = leaflet.icon({
-    iconUrl: logoLocal,
-    
-    iconSize: [50, 60],
-    iconAnchor: [29, 68],
-    popupAnchor: [170, 2]
-})
 
 
 function MapOngs() {
