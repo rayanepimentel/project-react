@@ -1,5 +1,6 @@
 import { Request, Response, request } from 'express';
 import { getRepository } from 'typeorm';
+import ongView from '../views/orgs_view'
 
 import Ong from '../models/ong';
 
@@ -8,9 +9,11 @@ export default {
   async index(request: Request, response: Response) {
     const ongsRepository = getRepository(Ong)
 
-    const ongs = await ongsRepository.find();
+    const ongs = await ongsRepository.find({
+      relations: ['images']
+    });
 
-    return response.json(ongs);
+    return response.json(ongView.renderMany(ongs));
   },
 
   async show(request: Request, response: Response) {
@@ -18,9 +21,11 @@ export default {
 
     const ongsRepository = getRepository(Ong)
 
-    const ong = await ongsRepository.findOneOrFail(id);
+    const ong = await ongsRepository.findOneOrFail(id, {
+      relations: ['images']
+    });
 
-    return response.json(ong);
+    return response.json(ongView.render(ong));
   },
 
   async create(request: Request, response: Response) {
@@ -37,7 +42,7 @@ export default {
     const ongsRepository = getRepository(Ong);
 
     const requestImages = request.files as Express.Multer.File[];
-    
+
     const images = requestImages.map(image => {
       return { path: image.filename }
     })
