@@ -1,11 +1,11 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { FiClock, FiInfo, FiArrowLeft } from "react-icons/fi";
+import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { useHistory } from 'react-router-dom';
 import L from 'leaflet';
 
 import mapMarkerImg from '../img/logoLocal.svg';
+import Sidebar from "../components/Sidebar";
 
 import '../styles/pages/ong.css';
 
@@ -18,19 +18,9 @@ const happyMapIcon = L.icon({
 })
 
 export default function Ong() {
-  const { goBack } = useHistory();
-
   return (
     <div id="page-ong">
-      <aside>
-        <img src={mapMarkerImg} alt="Happy" />
-
-        <footer>
-          <button type="button" onClick={goBack}>
-            <FiArrowLeft size={24} color="#FFF" />
-          </button>
-        </footer>
-      </aside>
+      <Sidebar />
 
       <main>
         <div className="ong-details">
