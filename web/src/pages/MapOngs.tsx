@@ -1,13 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiPlus } from 'react-icons/fi';
-import { Map, TileLayer } from 'react-leaflet';
+import { FiPlus, FiArrowRight } from 'react-icons/fi';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import leaflet from 'leaflet';
 
 import 'leaflet/dist/leaflet.css';
 
 import logoLocal from '../img/logoLocal.svg';
 
+
 import '../styles/pages/map.css';
+
+const mapIcon = leaflet.icon({
+    iconUrl: logoLocal,
+    
+    iconSize: [50, 60],
+    iconAnchor: [29, 68],
+    popupAnchor: [170, 2]
+})
+
 
 function MapOngs() {
     return (
@@ -35,9 +46,21 @@ function MapOngs() {
                 {/* <TileLayer 
                 url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.MAP_TOKEN}`}
                 /> */}
+
+                <Marker
+                  icon={mapIcon}
+                  position={[-23.5593829,-46.6412154]}
+                >
+                    <Popup closeButton={false} minWidth={240} maxHeight={240} className="map-popup">
+                        nome da ONG
+                        <Link to="/ong/1">
+                            <FiArrowRight size={20} color="#FFF"/>
+                        </Link>
+                    </Popup>
+                </Marker>
             </Map>
 
-            <Link to="" className="enter-ongs">
+            <Link to="/ong/create" className="create-ong">
                 <FiPlus size={32} color="#FFF" />
             </Link>
         </div>
